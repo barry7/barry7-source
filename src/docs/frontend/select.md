@@ -152,7 +152,8 @@ handleQueryChange(val) {
   if (this.previousQuery === val || this.isOnComposition) return;
   if (
     this.previousQuery === null &&
-    (typeof this.filterMethod === 'function' || typeof this.remoteMethod === 'function')
+    (typeof this.filterMethod === 'function' || 
+    typeof this.remoteMethod === 'function')
   ) {
     this.previousQuery = val;
     return;
@@ -179,7 +180,8 @@ handleQueryChange(val) {
     this.broadcast('ElOption', 'queryChange', val);
     this.broadcast('ElOptionGroup', 'queryChange');
   }
-  if (this.defaultFirstOption && (this.filterable || this.remote) && this.filteredOptionsCount) {
+  if (this.defaultFirstOption && (this.filterable || this.remote) && 
+  this.filteredOptionsCount) {
     this.checkDefaultFirstOption();
   }
 }
@@ -247,7 +249,8 @@ function broadcast(componentName, eventName, params) {
     },
     methods: {
       queryChange(query) {
-        this.visible = new RegExp(escapeRegexpString(query), 'i').test(this.currentLabel) || this.created;
+        this.visible = new RegExp(escapeRegexpString(query), 'i')
+        .test(this.currentLabel) || this.created;
         if (!this.visible) {
           this.select.filteredOptionsCount--;
         }

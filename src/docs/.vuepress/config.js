@@ -1,7 +1,7 @@
 module.exports = {
     title: 'Barry7的个人博客',
     description: '欢迎来到Barry7的个人博客',
-    "dest": "./test",
+    // "dest": "./test",
     markdown: {
         lineNumbers: true
     },
