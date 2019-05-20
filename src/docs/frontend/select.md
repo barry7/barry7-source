@@ -107,7 +107,9 @@ Element本身就可以对options进行筛选，他是怎么实现的呢？
 <div align="center">
 <img src="./assets/1558073881.png">  
 </div>
+
 可以看到，这里有一个`<input>`，去`select.vue`中查找，找到如下定义：
+
 ```html
 <input
     type="text"
@@ -131,20 +133,22 @@ Element本身就可以对options进行筛选，他是怎么实现的呢？
     v-model="query"
     @input="debouncedQueryChange"
     v-if="filterable"
-    :style="{ 'flex-grow': '1', width: inputLength / (inputWidth - 32) + '%', 'max-width': inputWidth - 42 + 'px' }"
+    :style="{ 'flex-grow': '1', width: inputLength / (inputWidth - 32) 
+    + '%', 'max-width': inputWidth - 42 + 'px' }"
     ref="input">
 ```
 于是我们发现：
 1. 需要`filterable`存在才会渲染这个input
 2. input绑定了query
-3. input事件会触发debouncedQueryChange函数  
-那么我们自然要去看一下`debouncedQueryChange`是个什么东西了。
+3. input事件会触发debouncedQueryChange函数，看名字，作用
+大概是防抖触发QueryChange  
+那么我们自然要去看一下`debouncedQueryChange`具体是什么样了。
 
 跳转到函数定义处，查看代码。
 ```javascript
-    this.debouncedQueryChange = debounce(this.debounce, (e) => {
-      this.handleQueryChange(e.target.value);
-    });
+this.debouncedQueryChange = debounce(this.debounce, (e) => {
+  this.handleQueryChange(e.target.value);
+});
 ```
 继续查看handleQueryChange。
 ```javascript
@@ -228,7 +232,7 @@ function broadcast(componentName, eventName, params) {
   </li>
 </template>
 ```
-下面是JavaScript代码，删去部分无关代码。
+下面是JavaScript代码，已经删去部分无关代码。
 ```javascript
 <script type="text/babel">
   export default {
