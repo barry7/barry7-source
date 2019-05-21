@@ -7,6 +7,9 @@ module.exports = {
         lineNumbers: true
     },
     themeConfig: {
+        themeConfig: {
+            lastUpdated: 'Last Updated', // string | boolean
+        },
         // sidebarDepth:4,
         // sidebar:'auto',
         sidebar: {
@@ -16,7 +19,8 @@ module.exports = {
                     children: [
                         '',
                         'largeList',
-                        'select'
+                        'select',
+                        'select2'
                     ]
                 }
 
