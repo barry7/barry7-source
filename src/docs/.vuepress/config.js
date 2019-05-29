@@ -20,7 +20,8 @@ module.exports = {
                         '',
                         'largeList',
                         'select',
-                        'select2'
+                        'select2',
+                        'VUE-SSR'
                     ]
                 }
 
